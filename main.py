@@ -11,7 +11,7 @@ def export_to_excel_with_chart(table_name):
     try:
         # Проверяем существование БД
         if not os.path.exists(db_path):
-            print(f"❌ База данных не найдена: {db_path}")
+            print(f"База данных не найдена: {db_path}")
             return
             
         # Подключаемся к БД
@@ -22,7 +22,7 @@ def export_to_excel_with_chart(table_name):
         df = pd.read_sql_query(query, conn)
         
         if df.empty:
-            print(f"📝 Таблица {table_name} пуста")
+            print(f"Таблица {table_name} пуста")
             return
             
         # Создаем имя файла с текущей датой
@@ -53,11 +53,11 @@ def export_to_excel_with_chart(table_name):
         # Сохраняем файл
         wb.save(excel_path)
         
-        print(f"✅ Данные экспортированы в файл: {excel_path}")
-        print(f"📊 График создан")
+        print(f"Данные экспортированы в файл: {excel_path}")
+        print(f"График создан")
             
     except Exception as e:
-        print(f"❌ Ошибка: {e}")
+        print(f"Ошибка: {e}")
     finally:
         if 'conn' in locals():
             conn.close()
